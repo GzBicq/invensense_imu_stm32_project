@@ -9,10 +9,8 @@
   */
 void _Error_Handler(char * file, int line)
 {
-
-    while(1) 
-    {
-      
-    }
-
+    char sprintf_buf[50] = "";
+    uint16_t len = 0;
+    len = sprintf(sprintf_buf, "_ERROR File: %s,line: %d ", file, line);
+    imu_driver_uart_send_data(sprintf_buf, len);
 }

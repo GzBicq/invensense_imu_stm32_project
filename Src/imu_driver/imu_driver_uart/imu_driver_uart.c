@@ -90,7 +90,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
         
         if(m_uart_rxhandler)
         {
-            m_uart_rxhandler(NULL);
+            m_uart_rxhandler(&m_uart_rx_unit);
         }
         
     }
@@ -99,7 +99,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 /* USART1 init callback function, mainly config the specific PIN*/
 void HAL_UART_MspInit(UART_HandleTypeDef* huart)
 {
-
     GPIO_InitTypeDef GPIO_InitStruct;
     if(huart->Instance == USART1)
     {
@@ -110,15 +109,13 @@ void HAL_UART_MspInit(UART_HandleTypeDef* huart)
         __HAL_RCC_USART1_CLK_ENABLE();
       
         GPIO_InitStruct.Pin = UART_TX_PIN;
-       // GPIO_InitStruct.Pull = GPIO_PULLUP;
         GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
         GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
-      //  GPIO_InitStruct.Alternate = GPIO_AF7_USART1;
+        GPIO_InitStruct.Alternate = GPIO_AF7_USART1;
         HAL_GPIO_Init(UART_TX_GPIO, &GPIO_InitStruct);
 
         GPIO_InitStruct.Pin = UART_RX_PIN;
         HAL_GPIO_Init(UART_RX_GPIO, &GPIO_InitStruct);
-
     }
 
 }

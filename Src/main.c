@@ -39,6 +39,9 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "stm32f4xx_hal.h"
+#include "imu_driver_int.h"
+#include "imu_driver_uart.h"
+#include "dGyro.h"
       
 
 /* USER CODE BEGIN Includes */
@@ -48,7 +51,11 @@
 /* Private variables ---------------------------------------------------------*/
 I2C_HandleTypeDef hi2c1;
 
-
+void test_int_handler(void *p_context)
+{
+    //imu_driver_uart_send_data("int handler\n", 12);
+    _Error_Handler(__FILE__, __LINE__);
+}
 
 void SystemClock_Config(void);
 
@@ -62,8 +69,11 @@ int main(void)
 
   SystemClock_Config();
 
-  //test uart
   imu_driver_uart_init();
+  
+  imu_driver_int_init();
+  
+  imu_driver_int_regester_handler(gyro_data_ready_cb);
   
   while (1)
   {
