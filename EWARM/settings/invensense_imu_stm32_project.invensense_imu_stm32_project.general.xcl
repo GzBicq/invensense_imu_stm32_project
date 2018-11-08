@@ -1,0 +1,15 @@
+"H:\IAR\Tool\arm\bin\armproc.dll" 
+
+"H:\IAR\Tool\arm\bin\armstlink2.dll" 
+
+"H:\MCU\STM32\IAR_Space\invensense_imu_stm32_project\EWARM\invensense_imu_stm32_project\Exe\invensense_imu_stm32_project.out" 
+
+--plugin "H:\IAR\Tool\arm\bin\armbat.dll" 
+
+--device_macro "H:\IAR\Tool\arm\config\debugger\ST\STM32F4xx.dmac" 
+
+--flash_loader "H:\IAR\Tool\arm\config\flashloader\ST\FlashSTM32F411xE.board" 
+
+
+
+

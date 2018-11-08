@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\invensense_imu_stm32_project.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\..\..\part_time_job\share_car\MPU6050\MPU6050\EWARM\MPU6050.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+
